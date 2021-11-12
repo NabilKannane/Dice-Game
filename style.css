@@ -1,0 +1,87 @@
+*{
+    margin: 0%;
+    padding: 0%;
+
+}
+
+.card{
+    background: #fff;
+    width: 1000px;
+    height: 600px;
+    border-radius: 50px;
+    box-shadow: rgb(83, 83, 83) 15px 2px 100px;
+    margin: auto;
+    margin-top: 50px;
+    padding: 30px;
+}
+
+body{
+    background-color: rgb(155, 0, 0);
+}
+.player{
+    margin-top: 70px;
+  
+    width: 300px;
+    height: 400px;
+}
+
+.player h3{
+    font-size: 30px;
+    text-align: center;
+}
+.player .Score{
+    font-size: 50px;
+    text-align: center;
+    margin-top: 80px;
+}
+.players{
+    display: flex;
+}
+
+#P1{
+    margin-left: 20px;
+}
+
+#P2{
+    margin-left: 360px;
+}
+
+.TotalScr{
+    font-size: 60px;
+    position: relative;
+    top: 150px;
+    margin: auto;
+    text-align: center;
+    width: 200px;
+    height: 100px;
+    border-radius: 20px;
+    background-color: rgb(179, 0, 0);
+    color: white;
+}
+
+#dice{
+position: relative;
+left: 370px;
+bottom:320px
+}
+button{
+   width: 150px;
+   height: 40px;
+   margin: 5px;
+   background-color: darkred;
+   border-radius: 100px;
+   color: #fff;
+}
+.buttons{
+text-align: center;
+margin-top: -240px;
+}
+
+.totalScr{
+    font-size: 50px;
+}
+
+.playing{
+    color: green;
+  
+}

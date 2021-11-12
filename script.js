@@ -1,0 +1,69 @@
+const SCORE_MAX =100;
+var dice = document.querySelector("#dice");
+var score1 = document.querySelector("#score1");
+var totalScr1 = document.querySelector("#totalScr1");
+var totalScr2 = document.querySelector("#totalScr2");
+var P1 =document.querySelector("#P1");
+var P2 =document.querySelector("#P2");
+// INITIALISATION :
+var Playing = P1;
+let somme1 = 0;
+let somme2 = 0;
+P1.classList.add("playing");
+
+function Lancer(){
+     n = Math.floor(Math.random() * 6)+1
+    dice.setAttribute('src' , "img/"+n+".png");
+ 
+    //  score1.innerHTML =n;
+    if(Playing == P1){
+     somme1 +=n;
+    totalScr1.innerHTML =somme1;}
+
+    if(Playing == P2){
+         somme2 +=n;
+    totalScr2.innerHTML =somme2; 
+    }
+
+
+    if( n==1 ){
+      if(Playing ==P1)
+        somme1=0;
+
+        else{Playing == P2;
+          somme2=0;}
+     SwitchP();
+    }
+        
+
+
+ if((somme1 >= SCORE_MAX || somme2 >= SCORE_MAX)){
+alert("WINNER IS PLAYER X");
+ }
+
+}
+
+
+function SwitchP(){
+
+  if(Playing == P1){Playing=P2;
+    P1.classList.remove("playing");
+  P2.classList.add("playing");
+
+  }
+  else{Playing=P1;
+    P2.classList.remove("playing");
+    P1.classList.add("playing");
+  } 
+
+  if(n != 1 ){
+    let rs1= document.querySelector("#totalScr1");
+    let rs2 = document.querySelector("#totalScr2");
+      if(Playing==P1)
+      score1.innerHTML=rs1;
+
+      if(Playing==P2)
+      score1.innerHTML=rs2;
+  }
+
+}

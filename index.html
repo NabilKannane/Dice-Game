@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+      <div class="players">
+<div id="P1" class="player">
+    <h3>Player 1 <span><img src="img/switch.png" width="30px"alt=""></span></h3>
+    <hr>
+<h1 class="Score" id="score1">0</h1><br>
+<div id="totalScr1" class="TotalScr">00</div>
+</div>
+
+<div id="P2" class="player">
+    <h3>Player 2 <span><img src="img/switch.png" width="30px"alt=""></span></h3>
+<hr>
+<h1 class="Score" id="score2">0</h1><br>
+<div id="totalScr2" class="TotalScr">00</div>
+</div>
+
+</div> 
+<img id="dice" src="img/6.png" width="250px"alt="">   
+
+<div class="buttons">
+<button onclick="Lancer()">Lancer</button><br>
+<button onclick="SwitchP()">Switch Player</button>
+</div>  
+
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
