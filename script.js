@@ -1,69 +1,114 @@
-const SCORE_MAX =100;
+//---------------- PLAYER1 -----------------//
+var P1 = document.querySelector("#P1");
+var score1 = document.querySelector("#Score1");
+var TotalScr1 = document.querySelector("#TotalScore1");
+var role1 = document.querySelector("#role1");
+
+//---------------- PLAYER2 -----------------//
+var P2 = document.querySelector("#P2");
+var score2 = document.querySelector("#Score2");
+var TotalScr2 = document.querySelector("#TotalScore2");
+var role2 = document.querySelector("#role2");
+
+
+
+//---------------- DICE --------------------//
 var dice = document.querySelector("#dice");
-var score1 = document.querySelector("#score1");
-var totalScr1 = document.querySelector("#totalScr1");
-var totalScr2 = document.querySelector("#totalScr2");
-var P1 =document.querySelector("#P1");
-var P2 =document.querySelector("#P2");
-// INITIALISATION :
-var Playing = P1;
-let somme1 = 0;
-let somme2 = 0;
-P1.classList.add("playing");
+
+//----------------- Stuff ------------------//
+const SCORE_MAX=100;
+
+Start();
+
+//----------------fonctions ----------------//
+
+function SwitchP () {
+
+  if(playing == P1){
+     somme1 +=somme;
+    TotalScr1.innerHTML =somme1;
+    somme=0;
+    score1.innerHTML = 0;
+
+    playing=P2;
+    P2.classList.add("playing");
+    P1.classList.remove("playing");
+  }
+  else{
+    somme2 += somme;
+    TotalScr2.innerHTML =somme2;
+    somme=0;
+score2.innerHTML = 0;
+    playing=P1;
+    P1.classList.add("playing");
+    P2.classList.remove("playing");
+  }
+
+  if( (somme1 >= SCORE_MAX)){
+       alert("THE WINNER IS PLAYER 1")
+       Start();
+  }
+  if( (somme2 >= SCORE_MAX)){
+    alert("THE WINNER IS PLAYER 2")
+    Start();
+
+}
+}
+
 
 function Lancer(){
-     n = Math.floor(Math.random() * 6)+1
-    dice.setAttribute('src' , "img/"+n+".png");
- 
-    //  score1.innerHTML =n;
-    if(Playing == P1){
-     somme1 +=n;
-    totalScr1.innerHTML =somme1;}
+  round++;
+  let rand = Math.floor(Math.random() * 6)+1;
+  dice.setAttribute('src' , 'img/'+rand+'.png')
 
-    if(Playing == P2){
-         somme2 +=n;
-    totalScr2.innerHTML =somme2; 
+  if( rand ==1){
+           if(playing == P1 && round!=0){
+             alert(" Player 1 : Dice 1")
+             TotalScr1.innerHTML =0;
+             score1.innerHTML = 0;
+             playing =P2;
+             somme1 = somme =0;
+             P2.classList.add("playing");
+             P1.classList.remove("playing");
+             round=0;
+           }
+           if(playing == P2 && round!=0){
+            
+            alert(" Player 2 : Dice 1")
+            TotalScr2.innerHTML =0;
+            score2.innerHTML = 0;
+            playing = P1;
+            somme2 = somme =0;
+            P1.classList.add("playing");
+            P2.classList.remove("playing");
+            round=0;
+          }
+  }
+
+  else{
+    if(playing == P1){
+          somme += rand;
+          score1.innerHTML = somme;
     }
-
-
-    if( n==1 ){
-      if(Playing ==P1)
-        somme1=0;
-
-        else{Playing == P2;
-          somme2=0;}
-     SwitchP();
+       else{
+           somme +=rand;
+           score2.innerHTML = somme;
     }
-        
+  }
+}
 
-
- if((somme1 >= SCORE_MAX || somme2 >= SCORE_MAX)){
-alert("WINNER IS PLAYER X");
- }
-
+function Start(){
+   somme =0;
+   somme1 =0;
+   somme2 = 0;
+   round = 0 ;
+   playing = P1;
+  TotalScr1.innerHTML =0;
+  score1.innerHTML = 0;
+  TotalScr2.innerHTML =0;
+  score2.innerHTML = 0;
+  playing.classList.add("playing");
+  P2.classList.remove("playing");
 }
 
 
-function SwitchP(){
-
-  if(Playing == P1){Playing=P2;
-    P1.classList.remove("playing");
-  P2.classList.add("playing");
-
-  }
-  else{Playing=P1;
-    P2.classList.remove("playing");
-    P1.classList.add("playing");
-  } 
-
-  if(n != 1 ){
-    let rs1= document.querySelector("#totalScr1");
-    let rs2 = document.querySelector("#totalScr2");
-      if(Playing==P1)
-      score1.innerHTML=rs1;
-
-      if(Playing==P2)
-      score1.innerHTML=rs2;
-  }
-
-}
